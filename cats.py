@@ -54,8 +54,25 @@ def about(topic):
     'Nice pup.'
     """
     assert all([lower(x) == x for x in topic]), 'topics should be lowercase.'
+
     # BEGIN PROBLEM 2
-    "*** YOUR CODE HERE ***"
+
+    def select(paragraph):
+        """a select function that returns whether
+        a paragraph contains one of the words in TOPIC.
+        Arguments:
+        paragraph: a string
+        """
+
+        paragraph = remove_punctuation(lower(paragraph))
+        paragraph = split(paragraph)
+        for word in topic:
+            if word in paragraph:
+                return True
+        return False
+
+    return select
+
     # END PROBLEM 2
 
 
@@ -84,8 +101,24 @@ def accuracy(typed, source):
     """
     typed_words = split(typed)
     source_words = split(source)
+
     # BEGIN PROBLEM 3
-    "*** YOUR CODE HERE ***"
+    if len(typed_words) == 0 and len(source_words) != 0:
+        return 0.0
+    elif len(typed_words) != 0 and len(source_words) == 0:
+        return 0.0
+    elif len(typed_words) == 0 and len(source_words) == 0:
+        return 100.0
+
+    correct_words = 0
+    for i in range(len(typed_words)):
+        if i < len(source_words) and typed_words[i] == source_words[i]:
+            print("DEBUG:", source_words[i])
+            print("DEBUG:", typed_words[i])
+            correct_words += 1
+
+    accu = (correct_words / len(typed_words)) * 100
+    return accu
     # END PROBLEM 3
 
 
@@ -274,7 +307,7 @@ def fastest_words(match):
     [4, 1, 6]
     """
     player_indices = range(len(get_all_times(match)))  # contains an *index* for each player
-    word_indices = range(len(get_all_words(match)))    # contains an *index* for each word
+    word_indices = range(len(get_all_words(match)))  # contains an *index* for each word
     # BEGIN PROBLEM 10
     "*** YOUR CODE HERE ***"
     # END PROBLEM 10
@@ -329,6 +362,7 @@ def match_string(match):
 
 
 enable_multiplayer = False  # Change to True when you're ready to race.
+
 
 ##########################
 # Command Line Interface #
