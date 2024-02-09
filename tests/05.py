@@ -29,30 +29,9 @@ test = {
           >>> autocorrect("outside", ["idea", "insider"], first_diff, 0.5)
           09b04681a750c56377719aed63ffc997
           # locked
-          >>> length_ratio = lambda w1, w2, limit: len(w2) / len(w1) # An asymmetric diff function
-          >>> autocorrect("aaa", ["a"], length_ratio, 2) # typed_word ("aaa") is passed in as the first argument to a diff function
-          45dd5175e49c2ee98a93ac63192d7d67
-          # locked
-          >>> autocorrect("cats", ["panthers", "lions"], length_ratio, 2)
-          6226b9e7b92f520a34b4109e8c7cc991
-          # locked
           """,
           'hidden': False,
-          'locked': True,
-          'multiline': False
-        },
-        {
-          'code': r"""
-          >>> ten_diff = lambda w1, w2, limit: 10 # Always returns 10
-          >>> autocorrect("hwllo", ["butter", "hello", "potato"], ten_diff, 20)
-          'butter'
-          >>> first_diff = lambda w1, w2, limit: (1 if w1[0] != w2[0] else 0) # Checks for matching first char
-          >>> autocorrect("tosting", ["testing", "asking", "fasting"], first_diff, 10)
-          'testing'
-          """,
-          'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': True
         },
         {
           'code': r"""
@@ -67,8 +46,7 @@ test = {
           'bye'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
@@ -81,908 +59,807 @@ test = {
           'getting'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('stilter', ['modernizer', 'posticum', 'undiscernible', 'heterotrophic', 'waller', 'marque', 'dephosphorization'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 1)
-          'posticum'
+          >>> autocorrect('statutably', ['statutably'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 5)
+          'statutably'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('bridgemaking', ['seeds', 'bridgemaking', 'endemiological', 'cobaltinitrite'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
-          'bridgemaking'
+          >>> autocorrect('ascetically', ['mennom', 'foreannouncement', 'neomorph', 'artemisic', 'pyrazole', 'sublicense', 'pinchem', 'spiculation', 'boreal', 'semitrimmed'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 8)
+          'spiculation'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('excursively', ['cirsotomy', 'terminableness', 'margaritaceous', 'gawkiness', 'ascon', 'floccose'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 1)
-          'excursively'
+          >>> autocorrect('gregariously', ['saccharate', 'hermeneutic', 'butanal', 'gregariously', 'splenopexy', 'demolitionary', 'budder'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 8)
+          'gregariously'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('hypertense', ['hyperbrachycranial'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 2)
-          'hypertense'
+          >>> autocorrect('fluor', ['nonnaturality'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 1)
+          'fluor'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('sporidia', ['intrarachidian', 'solifidianism'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 3)
-          'sporidia'
+          >>> autocorrect('werefolk', ['supersulcus', 'theorematically', 'dosiology', 'rotundness', 'raash', 'perule', 'untrekked', 'musophagine'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
+          'werefolk'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('chanson', ['upanishadic', 'ftp', 'chanson', 'unbeached', 'astrolabical'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 3)
-          'chanson'
+          >>> autocorrect('osmotactic', ['rhopalium', 'saxten', 'transitively', 'retardive', 'emprise', 'marmatite', 'unlivery', 'ultimata'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
+          'osmotactic'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('turnrow', ['lokao', 'archipelagian'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
-          'turnrow'
+          >>> autocorrect('limpin', ['wowserism', 'convictively', 'prepromote', 'amphictyonian', 'reverence', 'unemitted'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 2)
+          'limpin'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('fc', ['anthracia'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 4)
-          'fc'
+          >>> autocorrect('delabialize', ['delabialize', 'erythematous', 'gossipdom', 'killinite', 'osteochondropathy', 'tethydan', 'exhibitional'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 9)
+          'delabialize'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('crapy', ['nihilification', 'krieker', 'laureate', 'antechamber', 'crapy', 'belkin', 'ixodian', 'scarletseed', 'reliner', 'ebullioscope'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 7)
-          'crapy'
+          >>> autocorrect('cathepsin', ['elasticness', 'polony', 'spoke', 'unshaded', 'uncognoscibility', 'preimportation', 'unthickened', 'constructorship', 'brombenzamide', 'cathepsin'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 1)
+          'cathepsin'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('auximone', ['auximone'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 6)
-          'auximone'
+          >>> autocorrect('nebularization', ['iambi', 'heterology', 'dorsiflexion', 'depasturable', 'megalophonic', 'unsubvertive', 'bankrupture'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 1)
+          'nebularization'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('semicheviot', ['cinematize', 'struma'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
-          'semicheviot'
+          >>> autocorrect('lycanthropic', ['inkhornizer'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 4)
+          'inkhornizer'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('modify', ['imminution', 'uncensuring', 'fungiform', 'cargoose', 'quizzish'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 5)
-          'cargoose'
+          >>> autocorrect('miriness', ['eheu', 'aqueousness', 'loveworthy', 'showish', 'balut', 'cibation', 'pride', 'septuor'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 1)
+          'cibation'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('testator', ['impercipient', 'overrude', 'hyperingenuity', 'piligerous', 'molybdocolic', 'toxicum'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 8)
-          'overrude'
+          >>> autocorrect('ectodactylism', ['unowed', 'overslaugh', 'unshriveled'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 1)
+          'ectodactylism'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('unabsorb', ['unabsorb', 'chromolithographic', 'hemadynamometer', 'frailly', 'diana'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
-          'unabsorb'
+          >>> autocorrect('wringstaff', ['scleromeninx'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
+          'wringstaff'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('bounteously', ['universalization', 'accroach', 'unflinchingly', 'seagoer', 'overlight', 'condoling', 'truckling'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 2)
-          'unflinchingly'
+          >>> autocorrect('zygostyle', ['conchiferous', 'zygostyle', 'glottidean', 'temulentive', 'khajur', 'chirognomy', 'obitual', 'unfelicitousness'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 6)
+          'zygostyle'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('accomplisher', ['purloin', 'assignable', 'unallayably', 'caeca'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 1)
-          'unallayably'
+          >>> autocorrect('blown', ['subjacency', 'looplike', 'nasoethmoidal', 'capcase', 'communicableness', 'blown'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 5)
+          'blown'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('zonal', ['cautery', 'wiseness', 'yobi', 'kirk', 'herbalism', 'separata', 'zonal', 'anaglyphic', 'unshrined'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 3)
-          'zonal'
+          >>> autocorrect('autocatalyze', ['sulpholysis', 'kalo', 'cecidiology', 'progne', 'cosiness', 'quotity'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 9)
+          'sulpholysis'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('associated', ['cardiodysneuria', 'provoker'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 3)
-          'provoker'
+          >>> autocorrect('stichomancy', ['cnidophore', 'orrery', 'bargham', 'iridentropium', 'nickelous', 'cedarbird', 'grandpaternal'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 6)
+          'cnidophore'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('scusation', ['tubuliporoid', 'malleability', 'scusation', 'semichivalrous', 'urocele', 'dietetic', 'featureful', 'splenatrophy'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 2)
-          'scusation'
+          >>> autocorrect('prolyl', ['distortional', 'rotaliiform', 'permissive', 'posthemiplegic'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 3)
+          'prolyl'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('proportionability', ['psychonomic', 'nonfuturity'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
-          'proportionability'
+          >>> autocorrect('antemeridian', ['wistful', 'scorbutic', 'chichipe'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 5)
+          'scorbutic'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('untenanted', ['musterable', 'multivincular', 'recuperator', 'goto', 'turnsole', 'untenanted', 'isopterous', 'carbanilic'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 9)
-          'untenanted'
+          >>> autocorrect('uninventibleness', ['mudless', 'bromism', 'uneffused', 'waterhead', 'misbelieve', 'gelatined', 'bilk', 'heresy', 'hause'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 4)
+          'uninventibleness'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('widespread', ['bogland', 'interclash'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 5)
-          'interclash'
+          >>> autocorrect('energeia', ['hamated', 'encumberingly', 'closh', 'yugada', 'staphyloptosis'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 8)
+          'hamated'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('arenilitic', ['maximization'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 2)
-          'maximization'
+          >>> autocorrect('betanglement', ['orthopraxis', 'marina', 'gourmet', 'democrats', 'thirsting'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 6)
+          'orthopraxis'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('insee', ['karyopyknosis', 'nightwork', 'short', 'insee', 'unmated', 'capacitation'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 5)
-          'insee'
+          >>> autocorrect('actification', ['laconicum', 'shilpit', 'intercrust'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 1)
+          'actification'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('monoxenous', ['thoraces', 'preworldliness', 'monoxenous'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
-          'monoxenous'
+          >>> autocorrect('strongheadedness', ['circumvallate', 'sunset', 'dysgenesic'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
+          'strongheadedness'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('outskirmisher', ['slatternly', 'hexadic', 'immaculateness'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
-          'outskirmisher'
+          >>> autocorrect('picul', ['noration', 'tinstuff', 'arpent', 'ketogen', 'picul', 'vitreosity', 'highman', 'expiree'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 6)
+          'picul'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('unrepugnant', ['cordiner'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 1)
-          'unrepugnant'
+          >>> autocorrect('disregardance', ['unprejudicedly'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 6)
+          'unprejudicedly'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('arisen', ['palaeoatavism', 'drowsiness', 'untopped'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 7)
-          'untopped'
+          >>> autocorrect('intersuperciliary', ['moral', 'intersuperciliary', 'autoheterodyne', 'gypsywort', 'leiomyomatous', 'mercurialization', 'musing', 'balneography', 'clearhearted'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 8)
+          'intersuperciliary'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('seafare', ['seafare', 'bimillennium', 'valviform', 'thyridial', 'umbones', 'logitech', 'indigestible', 'unfastidious', 'gammerel', 'valiseful'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 8)
-          'seafare'
+          >>> autocorrect('airt', ['electroreceptive', 'nonpoisonous', 'perth', 'chrematistic', 'proctotomy', 'bicetyl'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 9)
+          'perth'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('uncranked', ['mesodermic', 'fingerling', 'metallophone'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 3)
-          'mesodermic'
+          >>> autocorrect('neighborless', ['unqueried', 'incedingly', 'sudiform'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 3)
+          'incedingly'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('unmagic', ['effluviate', 'unhuman', 'energeia', 'slouch', 'resource'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 5)
-          'unhuman'
+          >>> autocorrect('meliorist', ['contralto', 'erythematous', 'intromissive', 'tanglement', 'priest'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 5)
+          'contralto'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('tablespoon', ['tablespoon'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 7)
-          'tablespoon'
+          >>> autocorrect('assimilatory', ['enkindle', 'infections', 'hydrotherapeutic', 'unmilled', 'biotic'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 1)
+          'assimilatory'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('interwrought', ['rutabaga', 'fomentation', 'swampside', 'unpopularness', 'magnifier'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 5)
-          'fomentation'
+          >>> autocorrect('shelfmate', ['nucleonics', 'reducer', 'watered', 'tableful', 'loveman', 'deem', 'mimical', 'inarticulacy', 'smeddum'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 6)
+          'nucleonics'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('plumosity', ['introspectionist', 'teeting', 'unbroiled'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 7)
-          'unbroiled'
+          >>> autocorrect('galluses', ['paradoctor', 'retinopapilitis', 'unabsolvedness', 'galluses', 'procuratorial', 'calycate', 'superannuate', 'sternite', 'calorescent'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 7)
+          'galluses'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('staurolatry', ['staurolatry'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 1)
-          'staurolatry'
+          >>> autocorrect('chrysamminic', ['undeficient', 'haply', 'chancellery', 'ratiocinate', 'pasquinader', 'gamecube', 'externally'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 9)
+          'undeficient'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('nonviscous', ['previdence'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 5)
-          'previdence'
+          >>> autocorrect('vacuome', ['didst', 'hexactinellidan'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 7)
+          'didst'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('sterile', ['emancipation', 'recedent', 'haustement', 'prorebate', 'weatherliness', 'unchristianity', 'nonprotection', 'deviousness', 'strangury', 'mauvine'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
-          'mauvine'
+          >>> autocorrect('quinoid', ['piddler', 'unbatten', 'bemar', 'unfeeling', 'thermalgesia', 'stolonate', 'potash', 'gemmiparity', 'cuisine'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 2)
+          'piddler'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('propylic', ['touch', 'uniparental', 'chomp', 'violety', 'overweave', 'phelloplastics', 'fipple', 'inappreciable', 'melodramatist', 'pawnbrokering'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
-          'propylic'
+          >>> autocorrect('thieving', ['sportswomanly', 'nonlocal', 'lorate', 'histopathologist', 'trichiuroid', 'thieving', 'melanocratic'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 5)
+          'thieving'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('beechy', ['breastrope', 'hypocist', 'supersemination', 'ethnographically', 'atwitch', 'wraxle'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 5)
-          'wraxle'
+          >>> autocorrect('sagacity', ['undimerous', 'engrainedly', 'aschistic', 'nonpregnant'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 5)
+          'aschistic'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('stream', ['lecideiform', 'debtless', 'stream', 'loquent', 'leery', 'antipodean', 'mesothesis', 'ay'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 6)
-          'stream'
+          >>> autocorrect('limitless', ['scorpioidal', 'noologist', 'borscht', 'spectator', 'semiperimetry', 'decider', 'impaler', 'jesse', 'multipinnate', 'steam'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 9)
+          'noologist'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('chevronelly', ['nevo', 'driftweed', 'chevronelly', 'victoryless', 'illustrations', 'figent', 'mentality'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 6)
-          'chevronelly'
+          >>> autocorrect('invisibleness', ['unattackableness', 'chlorellaceous', 'dipolarization', 'unvoicing'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
+          'invisibleness'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('windbracing', ['nursedom', 'epidictical', 'defortify', 'taraf'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 4)
-          'epidictical'
+          >>> autocorrect('delegable', ['mamelonation', 'delegable', 'sunlight'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 3)
+          'delegable'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('corvina', ['predivinable', 'buchnerite', 'unexplanatory', 'nisei', 'neuronophagia', 'geitjie', 'porticoed', 'corvina'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 2)
-          'corvina'
+          >>> autocorrect('alcalde', ['schematonics'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 2)
+          'alcalde'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('nonreception', ['booming', 'retrothyroid', 'decarnate', 'lobbyism', 'playa', 'nonreception', 'amphictyonic', 'antiaesthetic', 'unjoyousness'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 7)
-          'nonreception'
+          >>> autocorrect('orbitelarian', ['orbitelarian', 'overstress'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
+          'orbitelarian'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('slopingness', ['toxone', 'nucleiform', 'priggish', 'intramuscularly', 'slopingness', 'saccharinated'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
-          'slopingness'
+          >>> autocorrect('crowkeeper', ['rejumble', 'crowkeeper'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 3)
+          'crowkeeper'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('cacoglossia', ['twankingly', 'eccentrate'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 4)
-          'twankingly'
+          >>> autocorrect('dissympathize', ['corticous', 'rollichie', 'palmar', 'outbetter', 'pyrometamorphic', 'saxtie', 'auricularis', 'reputedly', 'custumal', 'cheecha'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
+          'dissympathize'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('warriorwise', ['predigest', 'adipocellulose', 'warriorwise', 'sought', 'sciatherically', 'sexuale', 'onionlike'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 4)
-          'warriorwise'
+          >>> autocorrect('growthy', ['diluvialist', 'heriot', 'supersalient', 'hate', 'septation', 'nitriding', 'declared', 'supersaturate', 'autodidact'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 5)
+          'heriot'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('unpretendingly', ['unpretendingly', 'puppydom', 'lardworm', 'equestrianship', 'semolella', 'pauperize', 'athericeran', 'receipt', 'nonrevelation', 'pomacentroid'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 8)
-          'unpretendingly'
+          >>> autocorrect('lung', ['coronion', 'permutableness'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 2)
+          'lung'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('antagony', ['devisable', 'mountainet', 'swoony'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 8)
-          'devisable'
+          >>> autocorrect('colchicine', ['colchicine', 'zincographical'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 3)
+          'colchicine'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('escadrille', ['statolatry', 'bossism', 'latitudinal', 'stringless', 'hypsobathymetric', 'coinfinity', 'autotype', 'figurant'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 2)
-          'statolatry'
+          >>> autocorrect('wishedly', ['gravitater', 'adipopexia', 'djerib', 'bather'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 1)
+          'wishedly'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('anoplocephalic', ['grovel', 'stethoscopy', 'suddenty', 'legislatively', 'anoplocephalic', 'unimportant', 'unplace', 'plouk', 'crossed'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 8)
-          'anoplocephalic'
+          >>> autocorrect('dogmaticalness', ['dogmaticalness', 'obstupefy'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
+          'dogmaticalness'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('demipauldron', ['inclose', 'indistinctness', 'schemata', 'staying', 'volvent', 'snaringly', 'unflat', 'unruminatingly', 'plurisyllable'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
-          'demipauldron'
+          >>> autocorrect('amphicarpogenous', ['overbitter'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 3)
+          'amphicarpogenous'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('hexametrical', ['unbraceleted', 'runner', 'nickeline', 'cellulous', 'interlocutorily', 'ophthalmodynia', 'unthrone', 'pronunciability'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 7)
-          'unbraceleted'
+          >>> autocorrect('ingot', ['dispensatorily', 'manganapatite', 'gatemaker', 'hydrosulphocyanic', 'drugshop', 'caracolite', 'unloosen'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 7)
+          'drugshop'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('deuteride', ['deuteride', 'mimiambic', 'isoimmunity'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 7)
-          'deuteride'
+          >>> autocorrect('thutter', ['stirps', 'waverous', 'qualifying', 'sexuparous', 'realmless', 'wuzzle'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 5)
+          'stirps'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('pneumohydropericardium', ['spelunk', 'democratifiable', 'vacuous', 'spontaneous', 'supercapable', 'koolokamba', 'nosism', 'diplopia', 'biaxillary'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 4)
-          'pneumohydropericardium'
+          >>> autocorrect('underaverage', ['portfire', 'dilatometric', 'voicelet', 'aggress', 'overmultitude', 'winder', 'splenolysis', 'unsumptuous'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 2)
+          'dilatometric'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('archsacrificer', ['complications', 'unprophetical', 'unrevoked', 'profugate', 'voltmeter', 'foregoneness'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 2)
-          'complications'
+          >>> autocorrect('compensating', ['proceed', 'oxhorn', 'overskim', 'polemicist', 'injure', 'hygrophaneity', 'chairmender', 'lacunae', 'diplococcal'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 7)
+          'hygrophaneity'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('pilgrimatical', ['cystolithic', 'orderly', 'stupidhead', 'valveless', 'miffiness', 'arrhenotoky', 'curiously', 'gerenuk', 'underbed'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 1)
-          'pilgrimatical'
+          >>> autocorrect('solivagant', ['relativeness'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 4)
+          'relativeness'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('artillery', ['chromophilic', 'brabant', 'detailed', 'exulcerative'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 7)
-          'detailed'
+          >>> autocorrect('cynical', ['palpitate', 'supraoesophageal'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
+          'cynical'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('buncal', ['twixt', 'benzolize', 'ebenaceous'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 8)
-          'twixt'
+          >>> autocorrect('revivement', ['nitrophytic', 'restrainedness', 'revivement', 'tron', 'interpretably', 'runkly', 'ninebark', 'coemptor', 'bolete', 'larmier'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 7)
+          'revivement'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('dichlorohydrin', ['myosarcomatous'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 8)
-          'myosarcomatous'
+          >>> autocorrect('esuriently', ['nonprofession', 'mojarra', 'ophionine', 'goadster', 'nonappearer', 'accompanimental'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 7)
+          'ophionine'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('vaulty', ['mastigopodous', 'fragileness', 'petulance'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 9)
-          'petulance'
+          >>> autocorrect('hyalinization', ['ripe', 'spatuliform', 'serpent', 'truantship', 'epicrystalline', 'endosteitis', 'shark'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 1)
+          'epicrystalline'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('demodectic', ['tribunitive', 'mungofa', 'demodectic'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 6)
-          'demodectic'
+          >>> autocorrect('hypnosporangium', ['spondean', 'farmership', 'pharmuthi'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
+          'hypnosporangium'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('intersperse', ['lighttight', 'nautilite', 'alastrim', 'acetosalicylic', 'omnigerent', 'divisiveness', 'transubstantiationite', 'macrocyst'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 6)
-          'lighttight'
+          >>> autocorrect('attractiveness', ['phthisipneumony', 'transnature'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
+          'attractiveness'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('pratfall', ['quinometry', 'tyste', 'schistosome', 'reinclude', 'noncounty', 'shirtwaist'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 8)
-          'reinclude'
+          >>> autocorrect('actinomere', ['pearlite', 'epithecium', 'saddlenose', 'underbeam', 'labyrinthal', 'actinomere', 'collyrite', 'mythopoem'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 4)
+          'actinomere'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('bushful', ['actionary', 'pogonologist', 'snack', 'sabromin', 'hypervitalize', 'lakemanship', 'xylographical', 'barytone'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 2)
-          'sabromin'
+          >>> autocorrect('autohypnotization', ['crepusculine', 'solecizer', 'overfearful', 'cigar', 'veal', 'gnomonics', 'autohypnotization', 'theopneustic'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 6)
+          'autohypnotization'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('undared', ['chorizontes', 'infuriate', 'huddledom', 'pertly', 'bisacromial', 'taihoa', 'eponymize', 'commiserator', 'lightness', 'displeasurement'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
-          'undared'
+          >>> autocorrect('grad', ['lighthouse', 'traversewise', 'necessist', 'kinesiology', 'coetaneousness'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 1)
+          'grad'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('tissue', ['plumbable', 'siroccoishly', 'uji', 'mortific', 'unbolt', 'loxodont', 'vasodilation', 'tartarize', 'tissue'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 7)
-          'tissue'
+          >>> autocorrect('superambitious', ['electrodepositor', 'superambitious', 'phalacrocoracine', 'taxeme'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 7)
+          'superambitious'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('undulous', ['seedcase', 'rudder', 'muttering', 'individualize', 'undulous', 'adhamant'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 7)
-          'undulous'
+          >>> autocorrect('croisette', ['salubrious', 'untactful', 'kava', 'japanese', 'unennobling', 'ungreased', 'enterocinesia', 'pharyngemphraxis'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 5)
+          'untactful'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('mild', ['remittance', 'ropish', 'undetermined', 'sigillographical', 'nounally', 'ununiversitylike'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 9)
-          'ropish'
+          >>> autocorrect('prionodont', ['rattlebrain', 'unconcertedly', 'pronephridiostome', 'soredioid'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
+          'prionodont'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('chrysobull', ['geophyte', 'menthenone', 'aerobatic', 'begrease', 'darklings', 'ropable', 'overcharity', 'fineleaf'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 2)
-          'menthenone'
+          >>> autocorrect('archiepiscopal', ['bavary'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 5)
+          'archiepiscopal'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('upbelch', ['subchoroid', 'briefing'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 1)
-          'briefing'
+          >>> autocorrect('franc', ['fanciless'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
+          'franc'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('neckful', ['denunciator', 'gemmate', 'brigade', 'secondariness', 'verification', 'counteridea'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 9)
-          'gemmate'
+          >>> autocorrect('spastically', ['myelocytic', 'nonindictable', 'pretuberculous', 'mesoxalyl', 'strombite', 'muscule', 'cheesemongerly', 'unformularize', 'noninfected'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 7)
+          'noninfected'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('microblephary', ['retardant', 'preadequately'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 9)
-          'preadequately'
+          >>> autocorrect('choreographical', ['uncrushed', 'monotelephone', 'foist', 'transempirical', 'gawkily', 'choreographical'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 3)
+          'choreographical'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('trophobiosis', ['trophobiosis'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 3)
-          'trophobiosis'
+          >>> autocorrect('nonappendicular', ['sterneber'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 2)
+          'nonappendicular'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('cate', ['graphics', 'cate', 'missuppose', 'decalvation'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 2)
-          'cate'
+          >>> autocorrect('hermaphroditical', ['occluse', 'ramentaceous', 'rhonchus', 'lusterless', 'bewitchingly'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
+          'hermaphroditical'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('grue', ['synovitis', 'uninsultable'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 4)
-          'grue'
+          >>> autocorrect('pistareen', ['tarnisher', 'unwrinkled', 'pistareen', 'phacometer'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
+          'pistareen'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('urinogenital', ['intransigency', 'improperly', 'angiophorous'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 9)
-          'angiophorous'
+          >>> autocorrect('tarmac', ['simile', 'raphis', 'untriable', 'japan', 'overfold', 'perviousness', 'parliamentarism', 'intrathecal'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 7)
+          'simile'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('scarid', ['reticuloramose', 'pseudonymuncule', 'cacoepist', 'scarid', 'carbethoxyl', 'truncatorotund', 'unfelicitated', 'mochras'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 3)
-          'scarid'
+          >>> autocorrect('scarabee', ['pinite', 'barbarian', 'shank', 'metadiorite', 'scarabee', 'artificership'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 4)
+          'scarabee'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('gentilize', ['gentilize', 'trihemimeral', 'bifid'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 3)
-          'gentilize'
+          >>> autocorrect('underlap', ['xiphydriid', 'longicorn', 'shadchan', 'mixableness', 'journals', 'voltaic', 'homiletic', 'declinate'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 6)
+          'shadchan'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('chemitypy', ['keratonyxis', 'chemitypy', 'checkroll', 'hymnographer', 'tootler', 'perithelium', 'monodelph', 'manualism', 'neuroglial'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 6)
-          'chemitypy'
+          >>> autocorrect('dottler', ['hydroferrocyanate', 'canthotomy', 'unequableness', 'monomerous', 'assiduously'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 3)
+          'canthotomy'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('homoeopathician', ['woomerang', 'entempest', 'spratty', 'unabatingly', 'hemocyanin', 'scoptophilic'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
-          'homoeopathician'
+          >>> autocorrect('macrocytosis', ['plastogamy', 'grumpily', 'tease', 'macrocytosis'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 6)
+          'macrocytosis'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('unscared', ['unregimented', 'dissuasiveness', 'unissuable', 'soiling', 'connotative'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 8)
-          'soiling'
+          >>> autocorrect('stenocrotaphia', ['european', 'instantly', 'draughts', 'skewings'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 8)
+          'instantly'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('cottabus', ['cottabus', 'prescapularis', 'revaporization', 'censerless'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 6)
-          'cottabus'
+          >>> autocorrect('postpubertal', ['incomprehensibility', 'fole', 'nerviness', 'velvetry', 'coextensively', 'prepotency', 'ness', 'undetrimental'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
+          'postpubertal'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('preshipment', ['typolithographic', 'telephone', 'palatial', 'autocamper'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
-          'preshipment'
+          >>> autocorrect('outwrangle', ['angiotripsy'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
+          'outwrangle'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('catholicus', ['aestheticism', 'skullful', 'catholicus', 'headphone', 'fiend', 'lordy', 'sarlak', 'presuppositionless', 'squamulae'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 5)
-          'catholicus'
+          >>> autocorrect('maltreat', ['breathlessness'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
+          'maltreat'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('quadripartition', ['ingress', 'ungag'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 6)
-          'quadripartition'
+          >>> autocorrect('myohematin', ['myristic', 'yoicks', 'filcher', 'caddle', 'annexa'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
+          'myohematin'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('nacrite', ['behavior', 'aberdevine', 'dd', 'isopetalous', 'rousting', 'nonmonarchist', 'backjoint', 'unhearing', 'notice'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
-          'nacrite'
+          >>> autocorrect('clithral', ['diplocardiac', 'enwind', 'clithral', 'tarworks'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
+          'clithral'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('beast', ['borderlander', 'vedette', 'uncleverness', 'approaches', 'moviedom'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 7)
-          'vedette'
+          >>> autocorrect('impishly', ['paryphodrome', 'fratricide', 'unfeignedness', 'issueless', 'henad', 'unprettiness', 'mycohaemia', 'vacillation', 'bagattini'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
+          'impishly'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('presidence', ['bipupillate', 'gilbert', 'cardiagra'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
-          'presidence'
+          >>> autocorrect('dicrotic', ['immute', 'dicrotic'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
+          'dicrotic'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('dynamic', ['dynamic', 'twistable'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 7)
-          'dynamic'
+          >>> autocorrect('catelectrotonic', ['sharpish', 'mashy'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 6)
+          'catelectrotonic'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('pungey', ['toxicodermatitis', 'gallification', 'survival', 'rakshasa', 'pungey', 'overgrossness', 'postconvalescent', 'gander'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 4)
-          'pungey'
+          >>> autocorrect('chondrosin', ['resolicit', 'gangsman', 'tailorize', 'pluriseriate'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 2)
+          'resolicit'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('clouding', ['cacomixle', 'endonuclear', 'writer'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 3)
-          'cacomixle'
+          >>> autocorrect('telophase', ['thymy', 'unnobly', 'cephalometric', 'louty', 'granulet', 'surly', 'mysophobia'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
+          'telophase'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('losing', ['losing'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 5)
-          'losing'
+          >>> autocorrect('planoorbicular', ['turgidness', 'untailorly', 'untewed'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 3)
+          'planoorbicular'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('refederate', ['subframe', 'infinitude', 'astrochemist', 'shoulderer', 'sensation', 'nuclide', 'hallelujah'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 3)
-          'infinitude'
+          >>> autocorrect('depository', ['yad', 'unintrusted', 'nosy', 'unguinous', 'pachydermia', 'plainsoled', 'nonbleeding', 'protosalt', 'unnoticeable'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 4)
+          'plainsoled'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('coolie', ['overusually', 'supercargoship', 'contemptuous', 'undrawn', 'catchpollery', 'unfinishedness', 'coolie', 'siruaballi', 'tsia'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 9)
-          'coolie'
+          >>> autocorrect('semivulcanized', ['sulphonalism', 'indignly', 'phylogeny', 'indicial', 'tepidarium', 'expansible'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
+          'semivulcanized'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('chico', ['define', 'unmudded', 'unnourishing', 'fendable', 'spherulitize'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 1)
-          'define'
+          >>> autocorrect('hypocotylous', ['cord', 'longbow', 'heterodontism', 'alisier', 'duskingtide', 'eugenically', 'inequality', 'heatful'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
+          'hypocotylous'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('cointersecting', ['ungenuine', 'dealable', 'pejorism'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 5)
-          'ungenuine'
+          >>> autocorrect('cooing', ['clavelization', 'cooing', 'pedestrian', 'laryngoscleroma', 'primiparity'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 6)
+          'cooing'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('does', ['sulphamidic', 'monopersulfuric', 'heartsickening', 'talkathon', 'does', 'beveil', 'aeroperitoneum'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 5)
-          'does'
+          >>> autocorrect('rafflesia', ['toilsomeness', 'enantioblastic'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
+          'rafflesia'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('bullation', ['angiography', 'nonsidereal', 'bullation'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 8)
-          'bullation'
+          >>> autocorrect('nunky', ['washproof', 'soullessly'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 0)
+          'nunky'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         },
         {
           'code': r"""
-          >>> autocorrect('unclement', ['disdiapason', 'unclement', 'cesser', 'repatronize', 'sacerdotalist'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 2)
-          'unclement'
+          >>> autocorrect('multicuspidate', ['semiprofessional', 'diplomatist', 'hucksteress', 'autoreinfusion', 'emollient', 'apoxesis', 'entelam', 'oathworthy', 'anaplasty', 'potator'], lambda x, y, lim: min(lim + 1, abs(len(x) - len(y))), 3)
+          'autoreinfusion'
           """,
           'hidden': False,
-          'locked': False,
-          'multiline': False
+          'locked': False
         }
       ],
       'scored': True,
