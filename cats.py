@@ -113,8 +113,6 @@ def accuracy(typed, source):
     correct_words = 0
     for i in range(len(typed_words)):
         if i < len(source_words) and typed_words[i] == source_words[i]:
-            print("DEBUG:", source_words[i])
-            print("DEBUG:", typed_words[i])
             correct_words += 1
 
     accu = (correct_words / len(typed_words)) * 100
@@ -136,7 +134,8 @@ def wpm(typed, elapsed):
     """
     assert elapsed > 0, 'Elapsed time must be positive'
     # BEGIN PROBLEM 4
-    "*** YOUR CODE HERE ***"
+    no_of_words = len(typed) / 5
+    return no_of_words / (elapsed / 60)
     # END PROBLEM 4
 
 
