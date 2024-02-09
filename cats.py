@@ -151,6 +151,7 @@ def shifty_shifts(start, goal, limit):
 
 def pawssible_patches(start, goal, limit):
     """A diff function that computes the edit distance from START to GOAL."""
+
     def helper(s, g, diff):
         """A helper function that computes the edit distance from s to g
 
@@ -173,6 +174,7 @@ def pawssible_patches(start, goal, limit):
             return min(add_diff, remove_diff, substitute_diff)
 
     return helper(start, goal, 0)
+
 
 def final_diff(start, goal, limit):
     """A diff function. If you implement this function, it will be used."""
@@ -222,7 +224,17 @@ def time_per_word(times_per_player, words):
         words: a list of words, in the order they are typed.
     """
     # BEGIN PROBLEM 9
-    "*** YOUR CODE HERE ***"
+    times = []
+
+    for i in range(len(times_per_player)):
+        player_times = []
+        for j in range(1, len(times_per_player[i])):
+            player_times.append(times_per_player[i][j] - times_per_player[i][j - 1])
+
+        times.append(player_times)
+
+    return game(words, times)
+
     # END PROBLEM 9
 
 
