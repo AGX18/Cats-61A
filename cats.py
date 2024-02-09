@@ -35,6 +35,7 @@ def about(topic):
     'Nice pup.'
     """
     assert all([lower(x) == x for x in topic]), 'topics should be lowercase.'
+
     # BEGIN PROBLEM 2
     def select(paragraph):
         """a select function that returns whether
@@ -126,7 +127,25 @@ def shifty_shifts(start, goal, limit):
     their lengths.
     """
     # BEGIN PROBLEM 6
-    assert False, 'Remove this line'
+    diff = abs(len(start) - len(goal))
+
+    def helper(s, g, diff):
+        """A helper function that determines how many differences between s and g
+
+        s : a string
+        g : a string
+        """
+        if len(s) == 0 or len(g) == 0:
+            return diff
+        elif diff > limit:
+            return limit + 1
+        else:
+            if s[0] != g[0]:
+                return helper(s[1:], g[1:], diff + 1)
+            else:
+                return helper(s[1:], g[1:], diff)
+
+    return helper(start, goal, diff)
     # END PROBLEM 6
 
 
@@ -134,18 +153,18 @@ def pawssible_patches(start, goal, limit):
     """A diff function that computes the edit distance from START to GOAL."""
     assert False, 'Remove this line'
 
-    if ______________: # Fill in the condition
+    if ______________:  # Fill in the condition
         # BEGIN
         "*** YOUR CODE HERE ***"
         # END
 
-    elif ___________: # Feel free to remove or add additional cases
+    elif ___________:  # Feel free to remove or add additional cases
         # BEGIN
         "*** YOUR CODE HERE ***"
         # END
 
     else:
-        add_diff = ... # Fill in these lines
+        add_diff = ...  # Fill in these lines
         remove_diff = ...
         substitute_diff = ...
         # BEGIN
@@ -205,7 +224,7 @@ def fastest_words(game):
         a list of lists containing which words each player typed fastest
     """
     player_indices = range(len(all_times(game)))  # contains an *index* for each player
-    word_indices = range(len(all_words(game)))    # contains an *index* for each word
+    word_indices = range(len(all_words(game)))  # contains an *index* for each word
     # BEGIN PROBLEM 10
     "*** YOUR CODE HERE ***"
     # END PROBLEM 10
@@ -247,7 +266,9 @@ def game_string(game):
     """A helper function that takes in a game object and returns a string representation of it"""
     return "game(%s, %s)" % (game[0], game[1])
 
+
 enable_multiplayer = False  # Change to True when you're ready to race.
+
 
 ##########################
 # Command Line Interface #
