@@ -151,26 +151,28 @@ def shifty_shifts(start, goal, limit):
 
 def pawssible_patches(start, goal, limit):
     """A diff function that computes the edit distance from START to GOAL."""
-    assert False, 'Remove this line'
+    def helper(s, g, diff):
+        """A helper function that computes the edit distance from s to g
 
-    if ______________:  # Fill in the condition
-        # BEGIN
-        "*** YOUR CODE HERE ***"
-        # END
+        s : a string
+        g : a string
+        """
+        if len(s) == 0:
+            return len(g) + diff
+        elif len(g) == 0:
+            return len(s) + diff
+        elif s[0] == g[0]:
+            return helper(s[1:], g[1:], diff)
+        elif diff > limit:
+            return limit + 1
+        else:
+            add_diff = helper(s, g[1:], diff + 1)
+            remove_diff = helper(s[1:], g, diff + 1)
+            substitute_diff = helper(s[1:], g[1:], diff + 1)
 
-    elif ___________:  # Feel free to remove or add additional cases
-        # BEGIN
-        "*** YOUR CODE HERE ***"
-        # END
+            return min(add_diff, remove_diff, substitute_diff)
 
-    else:
-        add_diff = ...  # Fill in these lines
-        remove_diff = ...
-        substitute_diff = ...
-        # BEGIN
-        "*** YOUR CODE HERE ***"
-        # END
-
+    return helper(start, goal, 0)
 
 def final_diff(start, goal, limit):
     """A diff function. If you implement this function, it will be used."""
@@ -185,7 +187,16 @@ def final_diff(start, goal, limit):
 def report_progress(typed, prompt, user_id, send):
     """Send a report of your id and progress so far to the multiplayer server."""
     # BEGIN PROBLEM 8
-    "*** YOUR CODE HERE ***"
+    progress = 0
+    for i in range(len(typed)):
+        if typed[i] == prompt[i]:
+            progress += 1
+        else:
+            break
+
+    progress = progress / len(prompt)
+    send({'id': user_id, 'progress': progress})
+    return progress
     # END PROBLEM 8
 
 
